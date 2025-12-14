@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional - Rizky Fauzi | Prompt Engineer & Web Creator</title>
+    <meta name="description"
+        content="Portofolio Rizky Fauzi, seorang Prompt Engineer dan Web Creator yang mengubah ide menjadi kode front-end menawan menggunakan AI dan Tailwind CSS. Lihat karya terbaru dan hubungi saya.">
+    <meta name="keywords"
+        content="Rizky Fauzi, Portofolio, Prompt Engineer, Web Creator, Front-end Developer, AI, Tailwind CSS, Web Design, HTML, Website">
+    <meta name="author" content="Rizky Fauzi">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rizkyfauzi.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rizkyfauzi.com/">
+    <meta property="og:title" content="Portofolio Profesional - Rizky Fauzi | Prompt Engineer & Web Creator">
+    <meta property="og:description"
+        content="Portofolio Rizky Fauzi, seorang Prompt Engineer dan Web Creator yang mengubah ide menjadi kode front-end menawan menggunakan AI dan Tailwind CSS.">
+    <meta property="og:image" content="https://placehold.co/1200x630/6366f1/ffffff?text=Rizky+Fauzi+Portfolio">
+    <meta property="og:image:alt" content="Preview Portofolio Rizky Fauzi">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://rizkyfauzi.com/">
+    <meta property="twitter:title" content="Portofolio Profesional - Rizky Fauzi | Prompt Engineer & Web Creator">
+    <meta property="twitter:description"
+        content="Portofolio Rizky Fauzi, seorang Prompt Engineer dan Web Creator yang mengubah ide menjadi kode front-end menawan menggunakan AI dan Tailwind CSS.">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/6366f1/ffffff?text=Rizky+Fauzi+Portfolio">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rizky Fauzi",
+      "url": "https://rizkyfauzi.com/",
+      "image": "https://placehold.co/400x400/6366f1/ffffff?text=Rizky+Fauzi",
+      "jobTitle": "Prompt Engineer & Web Creator",
+      "description": "Seorang Prompt Engineer yang berfokus pada Web Creation, mengotomatisasi konversi ide menjadi kode front-end yang bersih dan responsif.",
+      "sameAs": [
+        "https://www.linkedin.com/in/rizkyfauzi",
+        "https://github.com/rizkyfauzi",
+        "https://twitter.com/rizkyfauzi"
+      ]
+    }
+    </script>
+
+    <!-- Memuat Tailwind CSS 4.1 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter secara default */
+        :root {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Grid Background for accent - Dibuat lebih gelap (#d1d5db) */
+        .grid-background {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, #d1d5db 1px, transparent 1px),
+                linear-gradient(to bottom, #d1d5db 1px, transparent 1px);
+        }
+
+        /* Animasi kursor sederhana untuk efek berkedip */
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .animate-pulse {
+            animation: blink 0.7s infinite;
+        }
+
+        /* Kelas untuk animasi Fade-in */
+        .fade-in-init {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-16">
+                <!-- Logo/Nama -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-indigo-600 tracking-wider">
+                        Rizky Fauzi
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero"
+                        class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Beranda</a>
+                    <a href="#about"
+                        class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Tentang</a>
+                    <a href="#portfolio"
+                        class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Portofolio</a>
+                    <a href="#contact"
+                        class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Kontak</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <!-- Ikon Hamburger (open) / Ikon X (close) -->
+                        <svg class="block h-6 w-6" id="menu-icon-open" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" id="menu-icon-close" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Beranda</a>
+                <a href="#about"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Tentang</a>
+                <a href="#portfolio"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Portofolio</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <!-- Menghapus page-section dari Hero -->
+        <section id="hero"
+            class="relative bg-gradient-to-br from-indigo-50 to-white pt-16 pb-24 sm:py-32 overflow-hidden">
+            <!-- Aksen Garis (Grid Background) - Opacity ditingkatkan menjadi 40% -->
+            <div class="absolute inset-0 grid-background opacity-40"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Gunakan flex-col-reverse untuk menempatkan gambar di atas teks pada mobile -->
+                <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center flex flex-col-reverse lg:flex-row">
+
+                    <!-- Konten Teks Hero (Kiri/Atas) - Sekarang urutan 2 di mobile, 1 di desktop -->
+                    <div class="mt-16 lg:mt-0 lg:col-span-7">
+                        <div class="text-center lg:text-left">
+                            <p class="text-lg font-semibold text-indigo-600 mb-3">Halo, Saya Rizky Fauzi</p>
+
+                            <!-- JUDUL ANIMASI TYPEWRITER -->
+                            <!-- Baris kedua tidak lagi menggunakan 'block mt-2' agar tetap INLINE -->
+                            <h1
+                                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                                <span id="typewriter-text-part1"></span>
+                                <span id="typewriter-text-part2" class="text-indigo-600"></span>
+                                <!-- Kursor tetap di dalam H1 -->
+                                <span id="cursor" class="text-indigo-600 animate-pulse inline-block">|</span>
+                            </h1>
+
+                            <p class="text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 mb-10">
+                                Saya mengubah ide menjadi *front-end* yang menawan dalam hitungan menit, memanfaatkan
+                                kecanggihan rekayasa prompt AI.
+                            </p>
+
+                            <!-- Tombol Aksi -->
+                            <div
+                                class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                                <a href="#portfolio"
+                                    class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                                    Lihat Karya Saya
+                                </a>
+                                <a href="#contact"
+                                    class="inline-flex items-center justify-center px-8 py-3 border border-indigo-200 text-base font-medium rounded-xl text-indigo-600 bg-white hover:bg-indigo-50 transition duration-300 transform hover:scale-105">
+                                    Hubungi Saya
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gambar/Visual Hero (Kanan/Bawah) - Sekarang urutan 1 di mobile, 2 di desktop -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-sm sm:max-w-md mx-auto">
+                            <!-- Tambahkan mx-auto untuk pemusatan horizontal yang eksplisit -->
+                            <!-- Latar Belakang Lingkaran Abstrak -->
+                            <div
+                                class="absolute inset-0 bg-indigo-200 rounded-full blur-3xl opacity-30 transform translate-x-10 translate-y-10">
+                            </div>
+
+                            <!-- Placeholder Gambar Profil -->
+                            <div
+                                class="relative bg-indigo-500 h-80 w-80 sm:h-96 sm:w-96 rounded-full shadow-2xl overflow-hidden ring-4 ring-white ring-offset-4 ring-offset-indigo-50">
+                                <img src="https://placehold.co/400x400/6366f1/ffffff?text=[Foto+Profil+Profesional]"
+                                    alt="Image of Professional Profile Photo" class="object-cover w-full h-full">
+                            </div>
+
+                            <!-- Decorative Element (Badge) Dihapus sesuai permintaan -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section TENTANG SAYA (About) -->
+        <!-- Menghapus page-section dari About -->
+        <section id="about" class="py-20 relative overflow-hidden bg-white fade-in-init">
+            <!-- Aksen Garis (Grid Background) pada bagian About -->
+            <div class="absolute inset-0 grid-background opacity-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Tahu Lebih
+                        Banyak</span>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Tentang Saya</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        Mewujudkan desain dan fungsionalitas web yang kompleks hanya dengan kekuatan prompt yang teruji.
+                    </p>
+                </div>
+
+                <!-- Konten 2 Kolom (Ringkasan/Filosofi, Keahlian) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                    <!-- Kolom 1: Ringkasan & Filosofi (Digabungkan) -->
+                    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg border-t-4 border-indigo-600">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Misi Saya</h3>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Sebagai Prompt Engineer yang berfokus pada Web Creation, misi saya adalah mengotomatisasi
+                            konversi ide menjadi kode *front-end* yang bersih dan responsif, terutama menggunakan
+                            kerangka kerja seperti Tailwind CSS.
+                        </p>
+                        <blockquote class="italic text-gray-600 border-l-4 border-indigo-400 pl-4 mb-4">
+                            "Kualitas website generatif bergantung pada presisi prompt. Saya memprioritaskan iterasi
+                            cepat, solusi elegan, dan pengalaman pengguna superior."
+                        </blockquote>
+                        <div class="mt-4 space-y-3">
+                            <div class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-indigo-500 mr-3" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-gray-700 font-medium">Menghemat waktu pengembangan klien hingga 70%.</p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-indigo-500 mr-3" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                <p class="text-gray-700 font-medium">Fokus pada *Clean Code* yang mudah dipelihara.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kolom 2: Keahlian Teknis (Gaya Chip/Badge Disederhanakan) -->
+                    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg border-t-4 border-indigo-600">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Keahlian & Teknologi</h3>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">Prompt
+                                Engineering Lanjutan</span>
+                            <span
+                                class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">Tailwind
+                                CSS</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">HTML
+                                & JS</span>
+                            <span
+                                class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">React/Angular
+                                (Generatif)</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">AI
+                                Code Debugging</span>
+                            <span
+                                class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">Design
+                                Generatif</span>
+                        </div>
+
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Peralatan Kunci:</h4>
+                            <ul class="list-disc list-inside text-gray-700 ml-4 space-y-1">
+                                <li>Gemini API (Code Generation)</li>
+                                <li>VS Code Environment</li>
+                                <li>AI Visualization Tools (DALL-E, Midjourney)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section PROJECT / PORTOFOLIO (Pilihan) -->
+        <!-- Menghapus page-section dari Portfolio -->
+        <section id="portfolio" class="py-20 relative overflow-hidden bg-gray-50 fade-in-init">
+            <!-- Aksen Garis (Grid Background) pada bagian Portfolio -->
+            <div class="absolute inset-0 grid-background opacity-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Karya Terbaru</span>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Portofolio Pilihan</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        Proyek-proyek yang dibuat menggunakan pendekatan Prompt Engineering AI.
+                    </p>
+                </div>
+
+                <!-- Grid Proyek Pilihan -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                    <!-- Kartu Proyek 1 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-[1.02]">
+                        <img src="https://placehold.co/600x400/374151/ffffff?text=E-Commerce+Generatif"
+                            alt="Contoh Proyek E-Commerce Generatif" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">E-Commerce Prompted</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Platform belanja yang seluruh desain dan kerangka datanya dihasilkan melalui prompt yang
+                                kompleks.
+                            </p>
+                            <a href="#all-projects-page"
+                                class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition">
+                                Lihat Proyek
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Proyek 2 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-[1.02]">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=Landing+Page+AI"
+                            alt="Contoh Proyek Landing Page AI" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Landing Page Sederhana</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Landing page minimalis dan cepat, 100% dibuat dengan Prompt Engineering dan Tailwind
+                                CSS.
+                            </p>
+                            <a href="#all-projects-page"
+                                class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition">
+                                Lihat Proyek
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kartu Proyek 3 -->
+                    <div
+                        class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition duration-300 hover:scale-[1.02]">
+                        <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Aplikasi+React+Generatif"
+                            alt="Contoh Proyek Aplikasi React Generatif" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">React Mini App</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Aplikasi kecil yang berfungsi penuh (mini app), dengan komponen React yang dihasilkan
+                                dari prompt.
+                            </p>
+                            <a href="#all-projects-page"
+                                class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-800 transition">
+                                Lihat Proyek
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Lihat Semua -->
+                <div class="text-center mt-12">
+                    <a href="#all-projects-page"
+                        class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-md text-white bg-indigo-500 hover:bg-indigo-600 transition duration-300">
+                        Lihat Semua Proyek (30+)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section SEMUA PORTOFOLIO (Halaman Detail) - BARU -->
+        <!-- Mempertahankan page-section dan display: none untuk isolasi halaman -->
+        <section id="all-projects-page" class="page-section py-20 relative overflow-hidden bg-white fade-in-init"
+            style="display: none;">
+            <div class="absolute inset-0 grid-background opacity-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Daftar Lengkap</span>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Semua Portofolio</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        Inilah koleksi lengkap proyek generatif yang saya buat untuk berbagai tantangan dan klien.
+                    </p>
+                </div>
+
+                <!-- Grid Semua Proyek (4 Kolom di desktop) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                    <!-- Proyek 1 - 12 (Duplikasi Kartu untuk demo) -->
+                    <!-- Proyek 1 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/4c51bf/ffffff?text=Proyek+1" alt="Proyek 1"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Landing Page Startup</h3>
+                            <p class="text-gray-600 text-sm mt-1">Dibuat 100% dengan Prompt Engineering Lanjutan.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 2 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/10b981/ffffff?text=Proyek+2" alt="Proyek 2"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Aplikasi To-Do List React</h3>
+                            <p class="text-gray-600 text-sm mt-1">Komponen generatif dengan Tailwind.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 3 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/f59e0b/ffffff?text=Proyek+3" alt="Proyek 3"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Dashboard Analitik Sederhana</h3>
+                            <p class="text-gray-600 text-sm mt-1">Struktur tata letak dihasilkan oleh prompt.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 4 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/ef4444/ffffff?text=Proyek+4" alt="Proyek 4"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Formulir Multi-Langkah</h3>
+                            <p class="text-gray-600 text-sm mt-1">Validasi dan struktur HTML/JS generatif.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 5 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/6366f1/ffffff?text=Proyek+5" alt="Proyek 5"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Blog Template Cepat</h3>
+                            <p class="text-gray-600 text-sm mt-1">Desain responsif dalam 5 menit prompt.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 6 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/374151/ffffff?text=Proyek+6" alt="Proyek 6"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Kalkulator BMI Sederhana</h3>
+                            <p class="text-gray-600 text-sm mt-1">Logika JavaScript generatif.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 7 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/10b981/ffffff?text=Proyek+7" alt="Proyek 7"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Galeri Foto Responsif</h3>
+                            <p class="text-gray-600 text-sm mt-1">Grid CSS dan interaktivitas JS.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 8 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/f59e0b/ffffff?text=Proyek+8" alt="Proyek 8"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Kartu Profil Animasi</h3>
+                            <p class="text-gray-600 text-sm mt-1">Efek CSS dan animasi transform.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 9 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/4c51bf/ffffff?text=Proyek+9" alt="Proyek 9"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Integrasi API Cuaca</h3>
+                            <p class="text-gray-600 text-sm mt-1">Fetching data dan visualisasi generatif.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 10 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/10b981/ffffff?text=Proyek+10" alt="Proyek 10"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Sistem Navigasi Kompleks</h3>
+                            <p class="text-gray-600 text-sm mt-1">Menu Mega dan dropdown responsif.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 11 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/f59e0b/ffffff?text=Proyek+11" alt="Proyek 11"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Halaman Harga SaaS</h3>
+                            <p class="text-gray-600 text-sm mt-1">Perbandingan fitur dan tabel harga elegan.</p>
+                        </div>
+                    </div>
+                    <!-- Proyek 12 -->
+                    <div
+                        class="bg-gray-50 rounded-xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.03] hover:shadow-xl">
+                        <img src="https://placehold.co/400x300/ef4444/ffffff?text=Proyek+12" alt="Proyek 12"
+                            class="w-full h-32 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-gray-900">Simulasi 3D Ringan</h3>
+                            <p class="text-gray-600 text-sm mt-1">Eksperimen kanvas dengan kode generatif.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Kembali ke Atas/Beranda -->
+                <div class="text-center mt-16">
+                    <a href="#hero"
+                        class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-md text-white bg-gray-600 hover:bg-gray-700 transition duration-300">
+                        Kembali ke Beranda
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Section KONTAK & MEDIA SOSIAL -->
+        <!-- Menghapus page-section dari Kontak -->
+        <section id="contact" class="py-20 relative overflow-hidden bg-gray-50 fade-in-init">
+            <!-- Aksen Garis (Grid Background) pada bagian Kontak -->
+            <div class="absolute inset-0 grid-background opacity-10"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-12">
+                    <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Mari Bekerja
+                        Sama</span>
+                    <h2 class="text-4xl font-extrabold text-gray-900 mt-2">Hubungi Saya</h2>
+                    <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                        Punya proyek menarik atau ingin berdiskusi? Kirimkan pesan atau temukan saya di media sosial.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+                    <!-- Kontak Detail dan Sosial Media (1/3 bagian) -->
+                    <div class="lg:col-span-1 space-y-8">
+
+                        <!-- Detail Kontak -->
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-indigo-500">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Informasi Kontak</h3>
+                            <p class="text-gray-700">
+                                Email: <a href="mailto:rizky.fauzi@example.com"
+                                    class="text-indigo-600 hover:text-indigo-800">rizky.fauzi@example.com</a>
+                            </p>
+                            <p class="text-gray-700">
+                                Lokasi: Jakarta, Indonesia
+                            </p>
+                        </div>
+
+                        <!-- Media Sosial -->
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-indigo-500">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Temukan Saya</h3>
+                            <div class="flex space-x-4">
+                                <!-- LinkedIn (SVG dummy - gunakan ikon asli jika tersedia) -->
+                                <a href="#" target="_blank"
+                                    class="text-gray-500 hover:text-indigo-600 transition duration-150">
+                                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.528-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.73 7 3.528v5.707z" />
+                                    </svg>
+                                </a>
+                                <!-- GitHub -->
+                                <a href="#" target="_blank"
+                                    class="text-gray-500 hover:text-indigo-600 transition duration-150">
+                                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.342.726-4.04-1.61-4.04-1.61-.546-1.385-1.332-1.753-1.332-1.753-1.087-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.833 2.81 1.303 3.494.996.108-.775.418-1.303.762-1.603-2.665-.304-5.466-1.334-5.466-5.93 0-1.31.467-2.385 1.238-3.227-.123-.304-.535-1.523.117-3.18 0 0 1.008-.323 3.301 1.23a11.53 11.53 0 016 0c2.293-1.553 3.3-1.23 3.3-1.23.653 1.657.24 2.876.12 3.18.77.842 1.234 1.917 1.234 3.227 0 4.58-2.805 5.62-5.474 5.923.43.37.823 1.102.823 2.22 0 1.603-.015 2.898-.015 3.28 0 .319.215.69.826.574C20.565 21.792 24 17.307 24 12c0-6.627-5.373-12-12-12z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                                <!-- Twitter/X -->
+                                <a href="#" target="_blank"
+                                    class="text-gray-500 hover:text-indigo-600 transition duration-150">
+                                    <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.309 8.216c.01.235.01.47 0 .704 0 7.21-5.49 10.15-10.378 10.15-2.072 0-3.992-.612-5.6-1.666 1.442.176 3.013-.075 4.398-.948-1.344-.025-2.482-.9-2.873-2.14.475.088.94.076 1.388-.05-1.443-.456-2.478-1.638-2.553-3.102.482.268.995.44 1.547.458-1.332-.89-1.748-2.613-.986-4.015 1.57.854 3.3.935 4.885.836-1.157-3.974 4.097-6.075 7.072-4.01 1.284-.257 2.493-.655 3.586-1.378-.42.848-1.24 1.536-2.343 1.97.027.24.037.477.037.712z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulir Kontak (2/3 bagian) -->
+                    <div class="lg:col-span-2 bg-white p-8 rounded-2xl shadow-xl border-t-4 border-indigo-600">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan Langsung</h3>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama
+                                    Lengkap</label>
+                                <input type="text" name="name" id="name" required
+                                    class="w-full p-3 border border-gray-300 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Alamat
+                                    Email</label>
+                                <input type="email" name="email" id="email" required
+                                    class="w-full p-3 border border-gray-300 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 transition duration-150">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan
+                                    Anda</label>
+                                <textarea name="message" id="message" rows="4" required
+                                    class="w-full p-3 border border-gray-300 rounded-xl focus:ring-indigo-500 focus:border-indigo-500 transition duration-150"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit"
+                                    class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl shadow-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.01]">
+                                    Kirim Pesan
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p>&copy; 2024 Rizky Fauzi. Prompt Architect. Hak Cipta Dilindungi.</p>
+                <p class="mt-2 text-sm text-gray-400">Dibuat dengan semangat Tailwind CSS dan AI Generatif.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript untuk Toggle Menu Mobile dan Typewriter -->
+    <script>
+        // --- Logic Toggle Menu Mobile ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const button = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+
+            // --- Intersection Observer (Re-implemented for scrollable page) ---
+            const scrollSections = [
+                document.getElementById('about'),
+                document.getElementById('portfolio'),
+                document.getElementById('contact')
+            ];
+            const allProjectsSection = document.getElementById('all-projects-page');
+            const mainSections = document.querySelectorAll('#hero, #about, #portfolio, #contact, footer'); // Ambil semua elemen utama termasuk footer
+
+            // Observer logic (re-implemented)
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            });
+
+            // Start observing main scroll sections
+            scrollSections.forEach(section => {
+                if (section) observer.observe(section);
+            });
+            // --------------------------------------------------
+
+            // --- Logic Hybrid Routing (Only for All Projects Page) ---
+            function handleRouting() {
+                const hash = window.location.hash || '#hero';
+                const isAllProjectsPage = hash === '#all-projects-page';
+
+                mainSections.forEach(section => {
+                    // Tampilkan semua bagian utama jika kita BUKAN di halaman Semua Proyek
+                    section.style.display = isAllProjectsPage ? 'none' : 'block';
+                });
+
+                // Tampilkan/Sembunyikan halaman Semua Proyek
+                if (allProjectsSection) {
+                    allProjectsSection.style.display = isAllProjectsPage ? 'block' : 'none';
+
+                    // Trigger fade-in for All Projects page if visible
+                    if (isAllProjectsPage) {
+                        allProjectsSection.classList.remove('fade-in-visible');
+                        setTimeout(() => {
+                            allProjectsSection.classList.add('fade-in-visible');
+                        }, 50);
+                    }
+                }
+
+                // Scroll ke atas halaman HANYA jika berpindah ke halaman Semua Proyek
+                if (isAllProjectsPage) {
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            // Atur routing pada saat load dan saat hash berubah
+            window.addEventListener('hashchange', handleRouting);
+            handleRouting(); // Panggil saat load
+
+            // --- Logic Toggle Menu Mobile ---
+            const toggleMenu = () => {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+                button.setAttribute('aria-expanded', String(!isExpanded));
+                menu.classList.toggle('hidden');
+                iconOpen.classList.toggle('hidden');
+                iconClose.classList.toggle('hidden');
+            };
+
+            button.addEventListener('click', toggleMenu);
+
+            const mobileLinks = menu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!menu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // --- Logic Typewriter Animation (Adjusted for Hybrid Routing) ---
+            const part1 = "Prompt Engineer";
+            const part2 = " & Web Creator.";
+            const element1 = document.getElementById('typewriter-text-part1');
+            const element2 = document.getElementById('typewriter-text-part2');
+            const cursor = document.getElementById('cursor');
+
+            const speed = 100; // Kecepatan ketik (ms)
+            const deleteSpeed = 50; // Kecepatan hapus (ms)
+            const pauseTime = 1500; // Waktu jeda (ms)
+
+            // Function to type text sequentially
+            function type(text, element, callback) {
+                let charIndex = 0;
+                element.after(cursor);
+
+                function typeChar() {
+                    if (charIndex < text.length) {
+                        element.textContent += text.charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeChar, speed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                typeChar();
+                if (cursor) cursor.classList.remove('hidden');
+            }
+
+            // Function to delete text sequentially
+            function del(element, callback) {
+                let currentText = element.textContent;
+                element.after(cursor);
+
+                function deleteChar() {
+                    if (currentText.length > 0) {
+                        currentText = currentText.substring(0, currentText.length - 1);
+                        element.textContent = currentText;
+                        setTimeout(deleteChar, deleteSpeed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                deleteChar();
+            }
+
+            function animateTypewriter() {
+                // Pastikan animasi hanya berjalan jika kita berada di halaman utama
+                const currentHash = window.location.hash || '#hero';
+                const isMainPage = currentHash !== '#all-projects-page';
+
+                if (!isMainPage) {
+                    element1.textContent = "";
+                    element2.textContent = "";
+                    if (cursor) cursor.style.display = 'none';
+                    return;
+                }
+
+                if (cursor) cursor.style.display = 'inline-block';
+
+                // 1. Ketik Part 1: "Prompt Engineer" 
+                type(part1, element1, () => {
+                    // 2. Ketik Part 2: " & Web Creator."
+                    type(part2, element2, () => {
+                        // 3. Jeda setelah selesai mengetik
+                        setTimeout(() => {
+                            // 4. Hapus Part 2
+                            del(element2, () => {
+                                // 5. Hapus Part 1
+                                del(element1, () => {
+                                    // 6. Jeda sebelum mengulang, lalu loop
+                                    setTimeout(animateTypewriter, 500);
+                                });
+                            });
+                        }, pauseTime);
+                    });
+                });
+            }
+
+            // Panggil Typewriter setelah routing selesai dan pastikan dijalankan saat hash berubah
+            window.addEventListener('hashchange', () => {
+                handleRouting();
+                // Reset/Restart typewriter logic on hash change if back on hero page
+                const currentHash = window.location.hash || '#hero';
+                if (currentHash === '#hero' || currentHash === '') {
+                    animateTypewriter();
+                }
+            });
+
+            // Mulai animasi pertama kali pada load
+            animateTypewriter();
+        });
+    </script>
+</body>
+
+</html>
