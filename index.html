@@ -676,6 +676,9 @@
 
     <!-- JavaScript untuk Toggle Menu Mobile dan Typewriter -->
     <script>
+        // Deklarasikan variabel timeout di luar fungsi agar dapat diakses secara global untuk di-clear.
+        let typingTimeout;
+
         // --- Logic Toggle Menu Mobile ---
         document.addEventListener('DOMContentLoaded', function () {
             const button = document.getElementById('mobile-menu-button');
@@ -716,18 +719,17 @@
             function handleRouting() {
                 const hash = window.location.hash || '#hero';
                 const isAllProjectsPage = hash === '#all-projects-page';
+                const isMainPage = !isAllProjectsPage;
 
+                // 1. Tampilkan/Sembunyikan semua section
                 mainSections.forEach(section => {
-                    // Tampilkan semua bagian utama jika kita BUKAN di halaman Semua Proyek
-                    section.style.display = isAllProjectsPage ? 'none' : 'block';
+                    section.style.display = isMainPage ? 'block' : 'none';
                 });
-
-                // Tampilkan/Sembunyikan halaman Semua Proyek
                 if (allProjectsSection) {
                     allProjectsSection.style.display = isAllProjectsPage ? 'block' : 'none';
 
-                    // Trigger fade-in for All Projects page if visible
                     if (isAllProjectsPage) {
+                        // Trigger fade-in untuk halaman Semua Proyek
                         allProjectsSection.classList.remove('fade-in-visible');
                         setTimeout(() => {
                             allProjectsSection.classList.add('fade-in-visible');
@@ -735,10 +737,111 @@
                     }
                 }
 
-                // Scroll ke atas halaman HANYA jika berpindah ke halaman Semua Proyek
+                // 2. Reset dan jalankan Typewriter jika di halaman utama
+                if (isMainPage) {
+                    // PENTING: Panggil reset dan mulai ulang animasi di sini
+                    resetTypewriter();
+                    animateTypewriter();
+                }
+
+                // 3. Gulir ke atas halaman HANYA jika berpindah ke halaman Semua Proyek
                 if (isAllProjectsPage) {
                     window.scrollTo(0, 0);
                 }
+            }
+
+            // --- Logic Typewriter Animation (Looping with Cursor Fix) ---
+            const part1 = "Prompt Engineer";
+            const part2 = " & Web Creator.";
+            const element1 = document.getElementById('typewriter-text-part1');
+            const element2 = document.getElementById('typewriter-text-part2');
+            const cursor = document.getElementById('cursor');
+
+            const speed = 100; // Kecepatan ketik (ms)
+            const deleteSpeed = 50; // Kecepatan hapus (ms)
+            const pauseTime = 1500; // Waktu jeda (ms)
+
+            function resetTypewriter() {
+                // Hapus semua timeout yang tertunda
+                clearTimeout(typingTimeout);
+                // Kosongkan konten teks
+                if (element1) element1.textContent = "";
+                if (element2) element2.textContent = "";
+                // Sembunyikan kursor
+                if (cursor) cursor.style.display = 'none';
+            }
+
+            // Function to type text sequentially
+            function type(text, element, callback) {
+                let charIndex = 0;
+                element.after(cursor);
+
+                function typeChar() {
+                    // Cek lagi apakah kita masih di halaman utama sebelum melanjutkan
+                    const currentHash = window.location.hash || '#hero';
+                    if (currentHash === '#all-projects-page') return;
+
+                    if (charIndex < text.length) {
+                        element.textContent += text.charAt(charIndex);
+                        charIndex++;
+                        typingTimeout = setTimeout(typeChar, speed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                typeChar();
+                if (cursor) cursor.style.display = 'inline-block';
+            }
+
+            // Function to delete text sequentially
+            function del(element, callback) {
+                let currentText = element.textContent;
+                element.after(cursor);
+
+                function deleteChar() {
+                    // Cek lagi apakah kita masih di halaman utama sebelum melanjutkan
+                    const currentHash = window.location.hash || '#hero';
+                    if (currentHash === '#all-projects-page') return;
+
+                    if (currentText.length > 0) {
+                        currentText = currentText.substring(0, currentText.length - 1);
+                        element.textContent = currentText;
+                        typingTimeout = setTimeout(deleteChar, deleteSpeed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                deleteChar();
+            }
+
+            function animateTypewriter() {
+                const currentHash = window.location.hash || '#hero';
+                const isMainPage = currentHash !== '#all-projects-page';
+
+                if (!isMainPage) {
+                    resetTypewriter();
+                    return;
+                }
+
+                if (cursor) cursor.style.display = 'inline-block';
+
+                // 1. Ketik Part 1: "Prompt Engineer" 
+                type(part1, element1, () => {
+                    // 2. Ketik Part 2: " & Web Creator."
+                    type(part2, element2, () => {
+                        // 3. Jeda setelah selesai mengetik
+                        typingTimeout = setTimeout(() => {
+                            // 4. Hapus Part 2
+                            del(element2, () => {
+                                // 5. Hapus Part 1
+                                del(element1, () => {
+                                    // 6. Jeda sebelum mengulang, lalu loop
+                                    typingTimeout = setTimeout(animateTypewriter, 500);
+                                });
+                            });
+                        }, pauseTime);
+                    });
+                });
             }
 
             // Atur routing pada saat load dan saat hash berubah
@@ -765,97 +868,6 @@
                 });
             });
 
-            // --- Logic Typewriter Animation (Adjusted for Hybrid Routing) ---
-            const part1 = "Prompt Engineer";
-            const part2 = " & Web Creator.";
-            const element1 = document.getElementById('typewriter-text-part1');
-            const element2 = document.getElementById('typewriter-text-part2');
-            const cursor = document.getElementById('cursor');
-
-            const speed = 100; // Kecepatan ketik (ms)
-            const deleteSpeed = 50; // Kecepatan hapus (ms)
-            const pauseTime = 1500; // Waktu jeda (ms)
-
-            // Function to type text sequentially
-            function type(text, element, callback) {
-                let charIndex = 0;
-                element.after(cursor);
-
-                function typeChar() {
-                    if (charIndex < text.length) {
-                        element.textContent += text.charAt(charIndex);
-                        charIndex++;
-                        setTimeout(typeChar, speed);
-                    } else if (callback) {
-                        callback();
-                    }
-                }
-                typeChar();
-                if (cursor) cursor.classList.remove('hidden');
-            }
-
-            // Function to delete text sequentially
-            function del(element, callback) {
-                let currentText = element.textContent;
-                element.after(cursor);
-
-                function deleteChar() {
-                    if (currentText.length > 0) {
-                        currentText = currentText.substring(0, currentText.length - 1);
-                        element.textContent = currentText;
-                        setTimeout(deleteChar, deleteSpeed);
-                    } else if (callback) {
-                        callback();
-                    }
-                }
-                deleteChar();
-            }
-
-            function animateTypewriter() {
-                // Pastikan animasi hanya berjalan jika kita berada di halaman utama
-                const currentHash = window.location.hash || '#hero';
-                const isMainPage = currentHash !== '#all-projects-page';
-
-                if (!isMainPage) {
-                    element1.textContent = "";
-                    element2.textContent = "";
-                    if (cursor) cursor.style.display = 'none';
-                    return;
-                }
-
-                if (cursor) cursor.style.display = 'inline-block';
-
-                // 1. Ketik Part 1: "Prompt Engineer" 
-                type(part1, element1, () => {
-                    // 2. Ketik Part 2: " & Web Creator."
-                    type(part2, element2, () => {
-                        // 3. Jeda setelah selesai mengetik
-                        setTimeout(() => {
-                            // 4. Hapus Part 2
-                            del(element2, () => {
-                                // 5. Hapus Part 1
-                                del(element1, () => {
-                                    // 6. Jeda sebelum mengulang, lalu loop
-                                    setTimeout(animateTypewriter, 500);
-                                });
-                            });
-                        }, pauseTime);
-                    });
-                });
-            }
-
-            // Panggil Typewriter setelah routing selesai dan pastikan dijalankan saat hash berubah
-            window.addEventListener('hashchange', () => {
-                handleRouting();
-                // Reset/Restart typewriter logic on hash change if back on hero page
-                const currentHash = window.location.hash || '#hero';
-                if (currentHash === '#hero' || currentHash === '') {
-                    animateTypewriter();
-                }
-            });
-
-            // Mulai animasi pertama kali pada load
-            animateTypewriter();
         });
     </script>
 </body>
